@@ -33,37 +33,3 @@ body {
     width: 100%;
   }
 }
-
-.header {
-  grid-area: head;
-  background-color: grey;
-}
-
-.header img {
-  height: 100%;
-  background-color: #fff;
-}
-
-.navigation {
-  grid-area: nav;
-  background-color: yellow;
-  min-width: max-content;
-}
-
-.navigation ul {
-  padding: 5px 10px;
-  padding-inline-start: 30px;
-}
-
-.navigation ul li {
-  padding: 5px auto;
-}
-
-.content {
-  grid-area: cont;
-  background-color: blue;
-}
-
-.content img {
-  width: 100%;
-}

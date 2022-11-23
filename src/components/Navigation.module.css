@@ -1,0 +1,31 @@
+.navigation {
+  grid-area: nav;
+  background-color: yellow;
+  min-width: max-content;
+}
+
+.navigation ul {
+  padding: 5px 10px;
+  padding-inline-start: 30px;
+  list-style: none;
+}
+
+.navigation ul li {
+  padding: 5px auto;
+}
+
+.item {
+  color: blue;
+}
+
+.item a {
+  text-decoration: none;
+}
+
+a {
+  color: inherit;
+}
+
+.item.active {
+  color: rgb(224, 1, 113);
+}
