@@ -33,3 +33,9 @@ body {
     width: 100%;
   }
 }
+
+.app-wrapper__content {
+  grid-area: cont;
+  background-color: rgb(102, 102, 255);
+  color: white;
+}
