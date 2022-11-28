@@ -1,1 +1,27 @@
+.dialogs {
+    display: flex;
+    flex-direction: row;
+}
 
+.dialogs_items {
+    width: 18.5%;
+    margin: 10px 1.25%;
+    border-right: solid black 1px;
+}
+
+.dialog {
+    padding: 15px 5px;
+}
+
+.dialog.active{
+    color: gold;
+}
+
+.messages {
+    width: 78.5%;
+    margin: 10px 1.25%;
+}
+
+.message {
+    padding: 10px 5px;
+}

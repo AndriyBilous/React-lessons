@@ -26,6 +26,6 @@ a {
   color: inherit;
 }
 
-.item.active {
+.active {
   color: rgb(224, 1, 113);
 }
