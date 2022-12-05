@@ -6,7 +6,10 @@ import Header from "./components/Header/Header.jsx";
 import Navigation from "./components/Navigation/Navigation.jsx";
 import Profile from "./components/Profile/Profile";
 
-const App = () => {
+const App = (props) => {
+  // console.log(props.state.profilePage);
+  // console.log(props.state.dialogsPage);
+
   return (
 
       <div className="app-wrapper">
@@ -14,8 +17,8 @@ const App = () => {
         <Navigation />
         <div className="app-wrapper__content">
           <Routes >
-            <Route path="/" element={<Profile/>} />
-            <Route path="dialogs/*" element={<Dialogs/>} />
+            <Route path="/" element={<Profile state={props.state.profilePage}/>}/>
+            <Route path="dialogs/*" element={<Dialogs state={props.state.dialogsPage} />} />
           </Routes>
           {/* <Profile /> */}
           {/* <Dialogs /> */}

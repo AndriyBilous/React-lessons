@@ -5,11 +5,11 @@ import Post from "./Post/Post";
 const MyPosts = () => {
 
   const postsData = [
-    {message: "Hi, how are you?", likesCount: "15"},
-    {message: "Hi, i'm fine, ty", likesCount: "23"}
+    {message: "Hi, how are you?", likesCount: "15", id: "0"},
+    {message: "Hi, i'm fine, ty", likesCount: "23", id: "1"}
   ]
 
-  const postsElements = postsData.map(el => <Post message={el.message} likesCount={el.likesCount} />)
+  const postsElements = postsData.map(el => <Post key={el.id} message={el.message} likesCount={el.likesCount} />)
 
   return (
     <div className={styles.wrapper}>

@@ -13,6 +13,10 @@
     padding: 15px 5px;
 }
 
+.dialog a {
+    text-decoration: none;
+}
+
 .active{
     color: gold;
 }
