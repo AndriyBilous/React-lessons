@@ -4,11 +4,12 @@ import classes from "./Profile.module.css";
 import ProfileInfo from "./ProfileInfo/ProfileInfo.jsx";
 
 const Profile = (props) => {
+
   return (
     <main className={classes.content}>
       <ProfileInfo />
 
-      <MyPosts postsData={props.state.postsData} addPost={props.addPost}/>
+      <MyPosts postsData={props.profilePage.postsData} addPost={props.addPost} newPostText={props.profilePage.newPostText} updateNewPostText={props.updateNewPostText}/>
     </main>
   );
 };

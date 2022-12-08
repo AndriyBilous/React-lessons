@@ -1,21 +1,26 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import styles from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
 
-const dialogsElement = props.state.dialogsData.map((el) => <DialogItem name={`${el.name}`} id={`${el.id}`} key={`${el.id}`}/>
+const dialogsElement = props.dialogsPage.dialogsData.map((el) => <DialogItem name={`${el.name}`} id={`${el.id}`} key={`${el.id}`}/>
   );
 
-  const messagesElements = props.state.messagesData.map(el => <Message message={el.message} id={el.id} key={el.id}/>);
+  const messagesElements = props.dialogsPage.messagesData.map(el => <Message message={el.message} id={el.id} key={el.id}/>);
 
   const messageText = React.createRef();
+
   const sendMessage = () => {
-    const message = messageText.current.value;
-    return alert(message);
+    props.addMessage();
   }
+
+  const onMessageChange = () => {
+    let text = messageText.current.value;
+    props.updateNewMessageText(text);
+  };
+
 
   return (
     <div className={styles.dialogs}>
@@ -23,7 +28,7 @@ const dialogsElement = props.state.dialogsData.map((el) => <DialogItem name={`${
       <div className={styles.messages}>
         {messagesElements}
         <div className={styles.textInput_container}>
-          <textarea className={styles.textArea} ref={messageText}></textarea>
+          <textarea onChange={onMessageChange} className={styles.textArea} ref={messageText} value={props.dialogsPage.newMessageText}/>
           <button onClick={sendMessage} className={styles.buttonSend}>Send</button>
         </div>
       </div>

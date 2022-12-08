@@ -8,7 +8,7 @@ import Profile from "./components/Profile/Profile";
 
 const App = (props) => {
   // console.log(props.state.profilePage);
-  // console.log(props.state.dialogsPage);
+//  console.log(props.state.dialogsPage);
 
   return (
 
@@ -17,8 +17,8 @@ const App = (props) => {
         <Navigation />
         <div className="app-wrapper__content">
           <Routes >
-            <Route path="/" element={<Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
-            <Route path="dialogs/*" element={<Dialogs state={props.state.dialogsPage} />} />
+            <Route path="/" element={<Profile profilePage={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>}/>
+            <Route path="dialogs/*" element={<Dialogs dialogsPage={props.state.dialogsPage} addMessage={props.addMessage} updateNewMessageText={props.updateNewMessageText}/>} />
           </Routes>
           {/* <Profile /> */}
           {/* <Dialogs /> */}
