@@ -1,8 +1,3 @@
-// const ADD_POST = 'ADD-POST';
-// const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-// const ADD_MESSAGE = 'ADD-MESSAGE';
-// const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-
 import dialogsReduser from "./DialogsReduser";
 import profileReduser from "./ProfileReduser";
 import sidebarReduser from "./SidebarReduser";
@@ -78,31 +73,7 @@ let store = {
   //   this._callsubscriber(this._state);
   // },
 
-  dispatch(action) { // (type: 'ADD-POST')
-    // if (action.type === ADD_POST) {
-    //   const newPost = {
-    //     id: this._state.profilePage.postsData.length + 1,
-    //     message: this._state.profilePage.newPostText,
-    //     likesCount: 0,
-    //   };
-    //   this._state.profilePage.postsData.push(newPost);
-    //   this._state.profilePage.newPostText = '';
-    //   this._callsubscriber(this._state);
-    // } else if (action.type === UPDATE_NEW_POST_TEXT) {
-    //   this._state.profilePage.newPostText = action.newText;
-    //   this._callsubscriber(this._state);
-    // } else if (action.type === ADD_MESSAGE){
-    //   const newMessage = {
-    //     id: this._state.dialogsPage.messagesData.length + 1,
-    //     message: this._state.dialogsPage.newMessageText,
-    //   };
-    //   this._state.dialogsPage.messagesData.push(newMessage);
-    //   this._state.dialogsPage.newMessageText = '';
-    //   this._callsubscriber(this._state);
-    // } else if (action.type === UPDATE_NEW_MESSAGE_TEXT){
-    //   this._state.dialogsPage.newMessageText = action.newText;
-    //   this._callsubscriber(this._state);
-    // }
+  dispatch(action) {
 
     this._state.profilePage = profileReduser(this._state.profilePage, action);
     this._state.dialogsPage = dialogsReduser(this._state.dialogsPage, action);
@@ -112,19 +83,6 @@ let store = {
     
   },
 };
-
-export const addPostActionCreator = () => {
-  return {
-    type: 'ADD-POST'
-  }
-}
-
-export const updateNewPostTextActionCreator = (text) => {
-  return {
-    type: 'UPDATE-NEW-POST-TEXT',
-    newText: text
-  }
-}
 
 export default store;
 window.store = store;
