@@ -1,7 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Dialogs from "./components/Dialogs/Dialogs";
+// import Dialogs from "./components/Dialogs/Dialogs";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import Header from "./components/Header/Header.jsx";
 import Navigation from "./components/Navigation/Navigation.jsx";
 import Profile from "./components/Profile/Profile";
@@ -17,13 +18,9 @@ const App = (props) => {
         <Navigation />
         <div className="app-wrapper__content">
           <Routes >
-          <Route path="/" element={<Profile profilePage={props.state.profilePage} dispatch={props.dispatch}/>}/>
-            <Route path="dialogs/*" element={<Dialogs dialogsPage={props.state.dialogsPage} dispatch={props.dispatch}/>} />
-            {/* <Route path="/" element={<Profile profilePage={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>}/>
-            <Route path="dialogs/*" element={<Dialogs dialogsPage={props.state.dialogsPage} addMessage={props.addMessage} updateNewMessageText={props.updateNewMessageText}/>} /> */}
+          <Route path="/" element={<Profile store={props.store} profilePage={props.state.profilePage} dispatch={props.dispatch}/>}/>
+          <Route path="dialogs/*" element={<DialogsContainer store={props.store}/>} />
           </Routes>
-          {/* <Profile /> */}
-          {/* <Dialogs /> */}
         </div>
       </div>
   );

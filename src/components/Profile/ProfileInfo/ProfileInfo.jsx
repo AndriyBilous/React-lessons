@@ -5,7 +5,7 @@ const ProfileInfo = () => {
     return (
       <div>
         <div >
-            <img src="https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_960_720.jpg"></img>
+            <img src="https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_960_720.jpg" alt="#"></img>
         </div>
         <div className={styles.description_block}>
             ava + description
