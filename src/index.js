@@ -5,32 +5,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-// import store from './redux/store';
 import store from './redux/reduxStore'
 import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-let rerenderEntireTree = (state) => {
-    
+
    root.render(
-    // <React.StrictMode>
-    //   <App />
-    // </React.StrictMode>
+
     <BrowserRouter>
       <Provider store={store}>
-        <App state={state} dispatch={store.dispatch.bind(store)} store={store}/>
-        {/* dialogsData={dialogsData} messagesData={messagesData} postsData={postsData} */}
+      <App/>
+        {/* <App state={state} dispatch={store.dispatch.bind(store)} store={store}/> */}
       </Provider>
     </BrowserRouter>
   );
-};
 
-rerenderEntireTree(store.getState());
-
-store.subscribe(() => {
-  const state = store.getState();
-  rerenderEntireTree(state)
-});
 
 
 

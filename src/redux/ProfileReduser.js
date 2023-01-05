@@ -10,23 +10,23 @@ const initialState = {
 };
 
 const profileReduser = (state = initialState, action) => {
-  let stateNew = JSON.parse(JSON.stringify(state));
     switch (action.type) {
         case ADD_POST:
-            const newPost = {
-                id: stateNew.postsData.length + 1,
-                message: stateNew.newPostText,
-                likesCount: 0,
-              };
-              stateNew.postsData.push(newPost);
-              stateNew.newPostText = '';
-              return stateNew;
+          const idData = state.postsData.length + 1;
+          const messageData = state.newPostText;
 
-        case UPDATE_NEW_POST_TEXT:
-          stateNew.newPostText = action.newText;
-            return stateNew;
+          const newPost = {id: idData, message: messageData, likesCount: 0};
+
+          return {
+            ...state,
+            postsData: [...state.postsData, newPost],
+            newPostText: '',
+          }
+
+        case UPDATE_NEW_POST_TEXT: 
+        return {...state, newPostText: action.newText}
         default:
-            return stateNew;
+            return state;
     }
 }
 

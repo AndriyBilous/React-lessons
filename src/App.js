@@ -2,12 +2,12 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 // import Dialogs from "./components/Dialogs/Dialogs";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import DialogsContainer from "./components/Dialogs/DialogsContainer.jsx";
 import Header from "./components/Header/Header.jsx";
 import Navigation from "./components/Navigation/Navigation.jsx";
-import Profile from "./components/Profile/Profile";
+import Profile from "./components/Profile/Profile.jsx";
 
-const App = (props) => {
+const App = () => {
   // console.log(props.state.profilePage);
 //  console.log(props.state.dialogsPage);
 
@@ -18,8 +18,10 @@ const App = (props) => {
         <Navigation />
         <div className="app-wrapper__content">
           <Routes >
-          <Route path="/" element={<Profile store={props.store} profilePage={props.state.profilePage} dispatch={props.dispatch}/>}/>
-          <Route path="dialogs/*" element={<DialogsContainer store={props.store}/>} />
+            <Route path="/" element={  <Profile/>}/>
+            <Route path="dialogs/*" element={ <DialogsContainer/>}/>
+          {/* <Route path="/" element={<Profile store={props.store} profilePage={props.state.profilePage} dispatch={props.dispatch}/>}/>
+          <Route path="dialogs/*" element={<DialogsContainer store={props.store}/>} /> */}
           </Routes>
         </div>
       </div>

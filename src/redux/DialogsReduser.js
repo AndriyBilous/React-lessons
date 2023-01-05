@@ -21,21 +21,27 @@ const initialState = {
   };
 
 const dialogsReduser = (state = initialState, action) => {
-    let stateNew = JSON.parse(JSON.stringify(state));
+    // let stateCopy = JSON.parse(JSON.stringify(state));
+
+
     switch(action.type) {
         case ADD_MESSAGE:
-            const newMessage = {
-                id: stateNew.messagesData.length + 1,
-                message: stateNew.newMessageText,
-              };
-              stateNew.messagesData.push(newMessage);
-              stateNew.newMessageText = '';
-              return stateNew;
+          const idData = state.messagesData.length + 1;
+          const messageData = state.newMessageText;
+
+          return {
+            ...state,
+            messagesData: [...state.messagesData, {id: idData,
+              message: messageData,}],
+            newMessageText: '',
+          };
         case UPDATE_NEW_MESSAGE_TEXT:
-            stateNew.newMessageText = action.newText;
-            return stateNew;
+          return {
+            ...state,
+            newMessageText: action.newText
+           };
         default:
-            return stateNew;
+            return state;
     }
 }
 
