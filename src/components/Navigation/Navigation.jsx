@@ -15,6 +15,9 @@ const Navigation = () => {
           <NavLink to="/dialogs" className={setActive}>Messages</NavLink>
         </li>
         <li className={styles.item}>
+          <NavLink to="/users" className={setActive}>Users</NavLink>
+        </li>
+        <li className={styles.item}>
           <NavLink to="news" className={setActive}>News</NavLink>
         </li>
         <li className={styles.item}>
