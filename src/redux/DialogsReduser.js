@@ -54,4 +54,13 @@ export const sendMessageActionCreator = () => ({
       newText: text
   })
 
+  export const sendMessage = () => ({
+    type: ADD_MESSAGE
+})
+
+export const updateNewMessageText = (text) => ({
+    type: UPDATE_NEW_MESSAGE_TEXT,
+    newText: text
+})
+
 export default dialogsReduser;

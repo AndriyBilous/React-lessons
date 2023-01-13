@@ -30,11 +30,20 @@ const profileReduser = (state = initialState, action) => {
     }
 }
 
-export const addPostActionCreator = () => ({
+// export const addPostActionCreator = () => ({
+//     type: ADD_POST
+//   })
+  
+//   export const updateNewPostTextActionCreator = (text) => ({
+//     type: UPDATE_NEW_POST_TEXT,
+//     newText: text
+//   })
+
+  export const addPost = () => ({
     type: ADD_POST
   })
   
-  export const updateNewPostTextActionCreator = (text) => ({
+  export const updateNewPostText = (text) => ({
     type: UPDATE_NEW_POST_TEXT,
     newText: text
   })
