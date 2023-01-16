@@ -9,7 +9,7 @@ const Navigation = () => {
     <nav className={styles.navigation}>
       <ul>
         <li className={styles.item}>
-          <NavLink to="/" className={setActive}>Profile</NavLink>
+          <NavLink to="/profile" className={setActive}>Profile</NavLink>
         </li>
         <li className={styles.item}>
           <NavLink to="/dialogs" className={setActive}>Messages</NavLink>

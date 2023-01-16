@@ -18,4 +18,6 @@ const redusers = combineReducers({
 
 const store = configureStore({ reducer: redusers})
 
+window.store = store;
+
 export default store;
