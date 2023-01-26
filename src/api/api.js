@@ -15,12 +15,23 @@ export const usersApi = {
         }).then(response => response.data)
     },
 
-    followed (follow, u) {
+    followed (follow, userId) {
         if (follow === 'false') {
-        return instance.post(`follow/${u.id}`)
+        return instance.post(`follow/${userId}`)
     } else {
-        return instance.delete(`follow/${u.id}`)
-    }}
+        return instance.delete(`follow/${userId}`)
+    }},
+
+    getProfile(userId) {
+        return instance
+        .get(`profile/` + userId);
+    },
+}
+
+export const authAPI = {
+    me() {
+        return instance.get(`auth/me`)
+    }
 }
 
 // export const getUsers = (currentPage = 1, pageSize = 10) => {

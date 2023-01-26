@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import { Navigate } from "react-router-dom";
 // import { sendMessageActionCreator, updateNewMessageTextActionCreator } from "../../redux/dialogsReduser";
 
 const Dialogs = (props) => {
@@ -23,6 +24,10 @@ const dialogsElement = props.dialogsPage.dialogsData.map((el) => <DialogItem nam
     // let text = messageText.current.value;
     // const action = updateNewMessageTextActionCreator(text);
     // props.dispatch(action);
+  };
+
+  if (!props.isAuth) {
+    return <Navigate to='/login/' />
   };
 
 
