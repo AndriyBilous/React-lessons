@@ -5,13 +5,15 @@ import profileReduser from "./profileReduser";
 import { configureStore } from "@reduxjs/toolkit";
 import usersReduser from "./usersReduser";
 import authReduser from "./authReduser";
+import {reducer as formReduser} from "redux-form"
 
 const redusers = combineReducers({
     profilePage: profileReduser,
     dialogsPage: dialogsReduser,
     sidebar: sidebarReduser,
     usersPage: usersReduser,
-    auth: authReduser
+    auth: authReduser,
+    form: formReduser
 });
 
 // const store = legacy_createStore(
