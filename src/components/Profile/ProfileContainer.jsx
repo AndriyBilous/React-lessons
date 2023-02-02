@@ -48,7 +48,6 @@ const mapStateToProps = (state) => ({
     status: state.profilePage.status
 })
 
-
 export default compose(connect (mapStateToProps, {getUserProfile, getStatus, updateStatus}) , withRouter
 // , withAuthRedirect
 )(ProfileContainer);
