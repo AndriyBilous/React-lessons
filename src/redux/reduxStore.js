@@ -6,6 +6,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import usersReduser from "./usersReduser";
 import authReduser from "./authReduser";
 import {reducer as formReduser} from "redux-form"
+import appReduser from "./appReduser";
 
 const redusers = combineReducers({
     profilePage: profileReduser,
@@ -13,7 +14,8 @@ const redusers = combineReducers({
     sidebar: sidebarReduser,
     usersPage: usersReduser,
     auth: authReduser,
-    form: formReduser
+    form: formReduser,
+    app: appReduser
 });
 
 // const store = legacy_createStore(

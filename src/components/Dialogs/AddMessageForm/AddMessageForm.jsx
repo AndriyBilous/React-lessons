@@ -4,8 +4,10 @@ import { Textarea } from "../../common/FormsControls/FormControls";
 import { maxLengthCreator, required } from "../../../utils/validators/validators";
 import styles from "./../Dialogs.module.css";
 
+const maxLength100 = maxLengthCreator(100);
+
 const AddMessageForm = (props) => {
-    const maxLength100 = maxLengthCreator(100);
+    
 
     return (
       <form onSubmit={props.handleSubmit}>
