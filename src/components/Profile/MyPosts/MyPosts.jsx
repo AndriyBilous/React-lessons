@@ -8,12 +8,12 @@ import Post from "./Post/Post";
 
 const maxLength10 = maxLengthCreator(10);
 
-const MyPosts = (props) => {
-
+const MyPosts = React.memo((props) => {
   const postsElements = props.postsData.map(el => <Post key={el.id} message={el.message} likesCount={el.likesCount} />)
 
   const addNewPost = (values) => {
-    props.addPost(values.newPostText)
+    props.addPost(values.newPostText);
+    // values.newPostText = '';
   }
 
   return (
@@ -25,7 +25,7 @@ const MyPosts = (props) => {
       </div>
     </div>
   );
-};
+})
 
 const AddPostForm = (props) => {
   return (

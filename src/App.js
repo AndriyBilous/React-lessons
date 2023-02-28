@@ -11,7 +11,6 @@ import Navigation from "./components/Navigation/Navigation.jsx";
 import ProfileContainer, { withRouter } from "./components/Profile/ProfileContainer";
 import UsersContainer from "./components/Users/UsersContainer.jsx";
 import { initializeApp } from "./redux/appReduser";
-import { getAuthUserData } from "./redux/authReduser";
 
 class App extends React.Component {
   componentDidMount() {

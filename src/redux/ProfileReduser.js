@@ -45,31 +45,28 @@ const profileReduser = (state = initialState, action) => {
     type: SET_USER_PROFILE, dataProfile
   })
 
-  export const getUserProfile = (userId) => (dispatch) => {
-    usersApi.getProfile(userId)
-      .then((response) => {
+  export const getUserProfile = (userId) => async (dispatch) => {
+    const response = await usersApi.getProfile(userId);
+      
         dispatch(setUserProfile(response.data));
-      });
   }
 
   export const setStatus = (status) => ({
     type: SET_STATUS, status
   })
 
-  export const getStatus = (userId) => (dispatch) => {
-    profileApi.getStatus(userId)
-      .then((response) => {
+  export const getStatus = (userId) => async (dispatch) => {
+    const response = await profileApi.getStatus(userId);
+      
         dispatch(setStatus(response.data));
-      });
   }
 
-  export const updateStatus = (status) => (dispatch) => {
-    profileApi.updateStatus(status)
-      .then((response) => {
+  export const updateStatus = (status) => async (dispatch) => {
+    const response = await profileApi.updateStatus(status);
+
         if (response.data.resultCode === 0) {
           dispatch(setStatus(status));
         }
-      });
   }
 
 export default profileReduser;

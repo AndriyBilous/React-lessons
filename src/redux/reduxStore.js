@@ -18,10 +18,6 @@ const redusers = combineReducers({
     app: appReduser
 });
 
-// const store = legacy_createStore(
-//     redusers
-// );
-
 const store = configureStore({ reducer: redusers})
 
 window.store = store;
