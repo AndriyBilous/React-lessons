@@ -24,16 +24,6 @@ const LoginForm = ({ handleSubmit, error }) => {
         { type: "checkbox" },
         "Remember Me"
       )}
-      {/* <div>
-          <Field component={Input} name="email" placeholder="Email" validate={[required]}/>
-        </div>
-        <div>
-          <Field component={Input} name="password" placeholder="Password" type={"password"} validate={[required, maxLength15]}/>
-        </div>
-        <div>
-          <Field component={Input} name="rememberMe" type="checkbox"/>
-        </div>
-        <div>Remember Me</div> */}
       {error && <div className={style.formSummaryError}>{error}</div>}
       <div>
         <button>Login</button>
