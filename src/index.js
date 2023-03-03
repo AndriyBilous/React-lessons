@@ -7,17 +7,19 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import store from './redux/reduxStore'
 import { Provider } from 'react-redux';
+import SamuraiJsApp from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
    root.render(
 
-    <BrowserRouter>
-      <Provider store={store}>
-      <App/>
-        {/* <App state={state} dispatch={store.dispatch.bind(store)} store={store}/> */}
-      </Provider>
-    </BrowserRouter>
+    // <BrowserRouter>
+    //   <Provider store={store}>
+    //   <App/>
+    //     {/* <App state={state} dispatch={store.dispatch.bind(store)} store={store}/> */}
+    //   </Provider>
+    // </BrowserRouter>
+    <SamuraiJsApp/>
   );
 
 

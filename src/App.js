@@ -12,6 +12,10 @@ import ProfileContainer, { withRouter } from "./components/Profile/ProfileContai
 import UsersContainer from "./components/Users/UsersContainer.jsx";
 import { initializeApp } from "./redux/appReduser";
 
+import { BrowserRouter } from 'react-router-dom';
+import store from './redux/reduxStore'
+import { Provider } from 'react-redux';
+
 class App extends React.Component {
   componentDidMount() {
     // this.props.getAuthUserData();
@@ -42,4 +46,14 @@ const mapStateToProps = (state) => ({
   initialized: state.app.initialized
 })
 
-export default compose(connect(mapStateToProps, {initializeApp}), withRouter)(App);
+let AppContainer = compose(connect(mapStateToProps, {initializeApp}), withRouter)(App);
+
+let SamuraiJsApp = (props) => {
+  return <BrowserRouter>
+  <Provider store={store}>
+  <AppContainer/>
+  </Provider>
+</BrowserRouter>
+}
+
+export default SamuraiJsApp;
