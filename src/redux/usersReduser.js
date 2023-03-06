@@ -10,16 +10,10 @@ const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 const TOGGLE_IS_FOLLOWING_PROGRESS = "TOGGLE_IS_FOLLOWING_PROGRESS";
 
 const initialState = {
-  usersData: [
-    //     { id: "1", photoUrl: "https://cdn.pixabay.com/photo/2022/12/02/08/30/raspberry-7630520_960_720.jpg", followed: false, fullName: "Andriy B.", status: "I`m a boss", location: {city: "Kiev", country: "Ukraine"}},
-    //     { id: "2", photoUrl: "https://cdn.pixabay.com/photo/2022/12/02/08/30/raspberry-7630520_960_720.jpg", followed: true, fullName: "Dariya D.", status: "I`m a worker", location: {city: "Lviv", country: "Ukraine"}},
-    //     { id: "3", photoUrl: "https://cdn.pixabay.com/photo/2022/12/02/08/30/raspberry-7630520_960_720.jpg", followed: false, fullName: "Mariya C.", status: "I`m a student", location: {city: "Berlin", country: "Germany"}},
-    //     { id: "4", photoUrl: "https://cdn.pixabay.com/photo/2022/12/02/08/30/raspberry-7630520_960_720.jpg", followed: false, fullName: "Oleg D.", status: "I`m a trader", location: {city: "Dnipropetrovsk", country: "Ukraine"}},
-    //     { id: "5", photoUrl: "https://cdn.pixabay.com/photo/2022/12/02/08/30/raspberry-7630520_960_720.jpg", followed: true, fullName: "Alena V.", status: "I`m a trainer", location: {city: "Vrotslav", country: "Poland"}},
-  ],
-  pageSize: 5,
-  totalUsersCount: 19,
-  currentPage: 2,
+  usersData: [],
+  pageSize: 10,
+  totalUsersCount: 0,
+  currentPage: 1,
   isFetching: true,
   followingInProgress: [],
 };
@@ -30,24 +24,12 @@ const usersReduser = (state = initialState, action) => {
       return {
         ...state,
         usersData: updateObjectInArray(state.usersData, action.userId, "id", {followed: true}),
-        // usersData: state.usersData.map((u) => {
-        //   if (u.id === action.userId) {
-        //     return { ...u, followed: true };
-        //   }
-        //   return u;
-        // }),
       };
 
     case UNFOLLOW:
       return {
         ...state,
         usersData: updateObjectInArray(state.usersData, action.userId, "id", {followed: false}),
-        // usersData: state.usersData.map((u) => {
-        //   if (u.id === action.userId) {
-        //     return { ...u, followed: false };
-        //   }
-        //   return u;
-        // }),
       };
 
     case SET_USERS:
@@ -129,14 +111,6 @@ export const follow = (userId) => {
     const actionCreator = followSucsess;
 
     followUnfollowFlow(dispatch, userId, followed, actionCreator);
-    // dispatch(toggleIsFollowingInProgress(true, userId));
-
-    // const response = await usersApi.followed("false", userId);
-
-    //     if (response.data.resultCode === 0) {
-    //       dispatch(followSucsess(userId ));
-    //     }
-    //     dispatch(toggleIsFollowingInProgress(false, userId));
   };
 };
 export const unfollow = (userId) => {
@@ -145,13 +119,6 @@ export const unfollow = (userId) => {
     const actionCreator = unfollowSucsess;
 
     followUnfollowFlow(dispatch, userId, followed, actionCreator);
-    // dispatch(toggleIsFollowingInProgress(true, userId));
-
-    // const response = await usersApi.followed("true", userId);
-    // if (response.data.resultCode === 0) {
-    //   dispatch(unfollowSucsess(userId));
-    // }
-    // dispatch(toggleIsFollowingInProgress(false, userId));
   };
 };
 

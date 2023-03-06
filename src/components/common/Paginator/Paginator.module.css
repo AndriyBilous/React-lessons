@@ -1,3 +1,34 @@
 .selectedPage{
     font-weight: bold;
+    margin: 0 2px;
+    border: solid 2px rgb(251, 255, 6);
+    padding: 0 4px;
+}
+
+.paginator {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.pageNumber {
+    margin: 0 2px;
+    border: solid 1px black;
+    padding: 0 4px;
+}
+
+.pagePortionNumberButton_container {
+    display: flex;
+    margin: 5px 10px;
+}
+
+.pagePortionNumber_container {
+    align-items: center;
+    justify-content: center;
+    margin: 5px 10px;
+}
+
+.pagePortionNumberButton {
+    border-radius: 5px;
+    margin: 0;
 }
