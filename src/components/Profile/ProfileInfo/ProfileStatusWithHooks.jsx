@@ -23,7 +23,7 @@ useEffect(() => {
   };
 
   return (
-    <div>
+    <div className={styles.description_status_container}>
       {!editMode && (
         <div>
           <span onDoubleClick={activateEditMode}>
