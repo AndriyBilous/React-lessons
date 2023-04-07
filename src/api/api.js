@@ -57,16 +57,16 @@ export const authAPI = {
     me() {
         return instance.get(`auth/me/`);
     },
-    login(email, password, rememberMe = false) {
-        return instance.post('auth/login/', {email, password, rememberMe});
+    login(email, password, rememberMe = false, captcha) {
+        return instance.post('auth/login/', {email, password, rememberMe, captcha});
     },
-    logout(email, password, rememberMe = false) {
+    logout() {
         return instance.delete('auth/login/');
     }
 }
 
-// export const getUsers = (currentPage = 1, pageSize = 10) => {
-//     return instance.get(`users?page=${currentPage}&count=${pageSize}`, {
-//         withCredentials: true
-//     }).then(response => response.data)
-// }
+export const securityAPI = {
+    getCaptchaUrl() {
+        return instance.get(`security/get-captcha-url/`);
+    }
+}
