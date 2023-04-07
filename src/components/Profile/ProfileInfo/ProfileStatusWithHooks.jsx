@@ -26,6 +26,7 @@ useEffect(() => {
     <div className={styles.description_status_container}>
       {!editMode && (
         <div>
+          <b>Status : </b>
           <span onDoubleClick={activateEditMode}>
             {props.status || "----"} 
           </span>
@@ -33,6 +34,7 @@ useEffect(() => {
       )}
       {editMode && (
         <div>
+          <b>Status : </b>
           <input
             onChange={onStatusChange}
             autoFocus={true}

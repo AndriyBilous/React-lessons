@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form";
 import { profileApi, usersApi } from "../api/api";
 
 const ADD_POST = "ADD-POST";
@@ -106,6 +107,43 @@ export const savePhoto = (file) => async (dispatch) => {
   if (response.data.resultCode === 0) {
     dispatch(savePhotoSuccess(response.data.data.photos));
   }
+};
+
+export const saveProfileInfo = (profileData) => async (dispatch, getState) => {
+  const userId = getState().auth.id;
+  const response = await profileApi.saveProfileInfo(profileData);
+
+  if (response.data.resultCode === 0) {
+    dispatch(getUserProfile(userId));
+  } else {
+    const sequence = (errorObject) => {
+      dispatch(stopSubmit("editProfile", errorObject));
+    };
+
+    const fieldName = (number) => {
+      const text = response.data.messages[number];
+      const textSplitted = text.split("->");
+
+      return textSplitted[1].replace(")", "").toLowerCase();
+    };
+
+    const errorObject = {};
+    const finalErrorObject = {};
+
+    if (response.data.messages.length === 1) {
+      errorObject[fieldName(0)] = response.data.messages[0];
+      finalErrorObject.contacts = errorObject;
+      sequence(finalErrorObject);
+    } else {
+      for (let i = 0; i < response.data.messages.length; i++) {
+        errorObject[fieldName(i)] = response.data.messages[i];
+      }
+      finalErrorObject.contacts = errorObject;
+      sequence(finalErrorObject);
+    }
+    return Promise.reject();
+  }
+  
 };
 
 export default profileReduser;

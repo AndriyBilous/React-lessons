@@ -4,7 +4,8 @@ import {
   getStatus,
   getUserProfile,
   updateStatus,
-  savePhoto
+  savePhoto,
+  saveProfileInfo
 } from "../../redux/profileReduser.js";
 import Profile from "./Profile.jsx";
 import classes from "./Profile.module.css";
@@ -70,6 +71,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default compose(
-  connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto }),
+  connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto, saveProfileInfo }),
   withRouter
 )(ProfileContainer);

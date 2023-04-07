@@ -7,8 +7,16 @@ import styles from "./../Dialogs.module.css";
 const maxLength100 = maxLengthCreator(100);
 
 const AddMessageForm = (props) => {
-    
+  const text = ["Invalid url format (Contacts->Facebook)"];
+    const textSplitted = text[0].split('->');
+    const textConverted = textSplitted[1].replace(")", "").toLowerCase();
+    const object1 = {};
+    object1[textConverted] = "message";
+    const objectForErrorMessage = {contacts: ""};
+    objectForErrorMessage.contacts = object1;
 
+    console.log(object1);
+    console.log(objectForErrorMessage);
     return (
       <form onSubmit={props.handleSubmit}>
         <div className={styles.textInput_container}>

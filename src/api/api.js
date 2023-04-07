@@ -42,23 +42,26 @@ export const profileApi = {
     savePhoto(photoFile) {
         const formData = new FormData();
         formData.append("image", photoFile);
-        return instance.put('profile/photo', formData, {
+        return instance.put('profile/photo/', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
         }); 
+    },
+    saveProfileInfo(profileData){
+        return instance.put('profile/', profileData); 
     }
 }
 
 export const authAPI = {
     me() {
-        return instance.get(`auth/me`);
+        return instance.get(`auth/me/`);
     },
     login(email, password, rememberMe = false) {
-        return instance.post('auth/login', {email, password, rememberMe});
+        return instance.post('auth/login/', {email, password, rememberMe});
     },
     logout(email, password, rememberMe = false) {
-        return instance.delete('auth/login');
+        return instance.delete('auth/login/');
     }
 }
 

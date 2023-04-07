@@ -28,13 +28,10 @@ let User = ({user, followingInProgress, unfollow, follow}) => {
                 </div>
               </span>
               <span>
-                <div>{user.name}</div>
-                <div>{user.status}</div>
+                <div>My name is: {user.name}</div>
+                <div>{user.status ? `Status: ${user.status}` : ""}</div>              
               </span>
-              <span>
-                <div>{"u.location.country"}</div>
-                <div>{"u.location.city"}</div>
-              </span>
+              
             </div>
 
 }
