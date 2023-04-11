@@ -1,10 +1,9 @@
 import React, { lazy } from "react";
 import { connect } from "react-redux";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { compose } from "redux";
 import "./App.css";
 import Preloader from "./components/common/Preloader";
-// import DialogsContainer from "./components/Dialogs/DialogsContainer.jsx";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import Navigation from "./components/Navigation/Navigation.jsx";
@@ -23,10 +22,18 @@ const WithSuspenseDialogsContainer = withSuspense(DialogsContainer);
 const WithSuspenseProfileContainer = withSuspense(ProfileContainer);
 
 class App extends React.Component {
+  catchAllUnhandledErrors = (promiseRejectionEvent) => {
+    alert("Some error occured");
+    console.error(promiseRejectionEvent);
+  }
+
   componentDidMount() {
-    // this.props.getAuthUserData();
     this.props.initializeApp();
+    window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
     }
+  componentWillUnmount() {
+    window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+  }
   
   render () {
     if(!this.props.initialized) return <Preloader />
@@ -36,12 +43,14 @@ class App extends React.Component {
           <HeaderContainer />
           <Navigation />
           <div className="app-wrapper__content">
-            <Routes >
+            <Routes>
+              <Route exact path="/" element={<Navigate to="/profile/"/>}/>
               <Route path="/profile/:userId" element={<WithSuspenseProfileContainer/>}/>
               <Route path="/profile/*" element={<WithSuspenseProfileContainer/>}/>
               <Route path="dialogs/*" element={ <WithSuspenseDialogsContainer/>}/>
               <Route path="users/*" element={<UsersContainer/>}/>
               <Route path="login/*" element={<Login/>}/>
+              <Route path="*" element={<div>404 Page not found</div>}/>
             </Routes>
           </div>
         </div>
